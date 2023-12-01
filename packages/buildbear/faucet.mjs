@@ -7,39 +7,33 @@ import {
   bbSupportedERC20Tokens,
 } from "./constants.mjs";
 import { readNodes } from "./helpers.mjs";
-
 const nodesData = readNodes();
 const args = process.argv.slice(2);
 const erc20Tokens = bbSupportedERC20Tokens[nodesData.forkingChainId];
 const erc20TokenNames = Object.keys(erc20Tokens);
-
 function nativeFaucet() {
   const spinner = ora("Faucet is minting native tokens").start();
-
   let walletAddress;
   let balance = "100";
-
   if (ethers.utils.isAddress(args[1])) walletAddress = args[1];
   else {
     balance = args[1].toString();
     walletAddress = args[2];
   }
-
-  const data = JSON.stringify({
-    address: walletAddress,
-    balance,
-  });
-
+  const data = {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "buildbear_nativeFaucet",
+    "params": [{
+      "address": walletAddress,
+      "balance": balance
+    }]
+  }
   const config = {
     method: "post",
-    url: `${BB_BACKEND_URL}/node/faucet/native/${nodesData.nodeId}`,
-    headers: {
-      Authorization: `Bearer ${BB_API_KEY}`,
-      "Content-Type": "application/json",
-    },
+    url: nodesData.rpcUrl,
     data,
   };
-
   axios(config)
     .then(() => {
       spinner.succeed(`${balance} native tokens added to ${walletAddress}`);
@@ -48,35 +42,31 @@ function nativeFaucet() {
       spinner.fail(error);
     });
 }
-
 function erc20Faucet() {
   const spinner = ora(`Faucet is minting ${args[0]}`).start();
   const tokenAddress = erc20Tokens[args[0]].address;
   let walletAddress;
   let balance = "100";
-
   if (ethers.utils.isAddress(args[1])) walletAddress = args[1];
   else {
     balance = args[1].toString();
     walletAddress = args[2];
   }
-
-  const data = JSON.stringify({
-    address: walletAddress,
-    token: tokenAddress,
-    balance,
-  });
-
+  const data = {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "buildbear_ERC20Faucet",
+    "params": [{
+      "address": walletAddress,
+      "balance": balance,
+      "token": tokenAddress
+    }]
+  }
   const config = {
     method: "post",
-    url: `${BB_BACKEND_URL}/node/faucet/erc20/${nodesData.nodeId}`,
-    headers: {
-      Authorization: `Bearer ${BB_API_KEY}`,
-      "Content-Type": "application/json",
-    },
+    url: nodesData.rpcUrl,
     data,
   };
-
   axios(config)
     .then(() => {
       spinner.succeed(`${balance} ${args[0]} tokens added to ${walletAddress}`);
@@ -85,13 +75,10 @@ function erc20Faucet() {
       spinner.fail(error);
     });
 }
-
 function isNum(val) {
   if (val) return /^\d+$/.test(val);
-
   return null;
 }
-
 if (
   args[0] === "native" &&
   (ethers.utils.isAddress(args[1]) ||
