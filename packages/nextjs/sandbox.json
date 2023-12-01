@@ -1,0 +1,9 @@
+{
+  "sandboxId": "uptight-anakin-skywalker-ace19869",
+  "chainId": 10233,
+  "rpcUrl": "https://rpc.dev.buildbear.io/uptight-anakin-skywalker-ace19869",
+  "faucetUrl": "https://faucet.dev.buildbear.io/uptight-anakin-skywalker-ace19869",
+  "explorerUrl": "https://explorer.dev.buildbear.io/uptight-anakin-skywalker-ace19869",
+  "verificationUrl": "https://api.dev.buildbear.io/v1/api/verify/etherscan/uptight-anakin-skywalker-ace19869",
+  "forkingChainId": 1
+}

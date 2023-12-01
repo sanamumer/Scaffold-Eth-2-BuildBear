@@ -1,5 +1,34 @@
 import * as chains from "viem/chains";
+import { defineChain } from 'viem';
+import node from "./sandbox.json";
 
+export const BuildBear = defineChain({
+  id: node.chainId,
+  name: 'BuildBear',
+  network: 'BuildBear',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    default: {
+      http: [node.rpcUrl],
+    },
+    public: {
+      http: [node.rpcUrl],
+    },
+  },
+  blockExplorers: {
+    default: { name: 'Explorer', url: node.explorerUrl },
+  },
+  contracts: {
+    // multicall3: {
+    //   address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    //   blockCreated: 5882,
+    // },
+  },
+})
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
   pollingInterval: number;
@@ -11,7 +40,7 @@ export type ScaffoldConfig = {
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.hardhat],
+  targetNetworks: [node.sandboxId ? BuildBear : chains.hardhat],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)

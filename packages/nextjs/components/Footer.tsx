@@ -4,7 +4,6 @@ import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import { Faucet } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useGlobalState } from "~~/services/store/store";
@@ -58,17 +57,16 @@ export const Footer = () => {
               </p>
               <a
                 className="flex justify-center items-center gap-1"
-                href="https://buidlguidl.com/"
+                href="https://www.buildbear.io/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <BuidlGuidlLogo className="w-3 h-5 pb-1" />
-                <span className="link">BuidlGuidl</span>
+                <span className="link">BuildBear</span>
               </a>
             </div>
             <span>·</span>
             <div className="text-center">
-              <a href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA" target="_blank" rel="noreferrer" className="link">
+              <a href="https://t.me/Web3_dApp_Developers" target="_blank" rel="noreferrer" className="link">
                 Support
               </a>
             </div>

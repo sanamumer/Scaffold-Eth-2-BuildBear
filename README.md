@@ -1,19 +1,30 @@
-# 🏗 Scaffold-ETH 2
+# 🏗 Scaffold-ETH 2 x Buildbear
 
 <h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
+  <a href="https://scaffoldeth.io">Scaffold-Eth</a> 
+  |
+<a href="https://www.buildbear.io/">BuildBear</a>
 </h4>
 
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+**Scaffold-Eth 2 x Buildbear** lets you create your own private Sandbox, (optional)forked for various EVM and EVM-compatible blockchain networks, with your own Token faucet and blockchain explorer
+
+# Key Features 
+
+### 1. Creating your private testnet
+
+![image](https://strapi.buildbear.io/uploads/Screenshot_1260_951622a15e.png?updated_at=2023-11-30T11:58:36.129Z)
+
+### 2. Use your Sandbox faucet
+
+![image](https://strapi.buildbear.io/uploads/Faucet_Build_Bear_2_7b9242dfd4.png?updated_at=2023-11-30T12:01:35.614Z)
+
+### 3. Effortlessly debug transactions within your sandbox using the built-in explorer and transaction tracer. 
+
+![image](https://docs.buildbear.io/assets/images/Explorer-BuildBear-67ded7eae622ab211611acd5986ecf41.png)
+### 4. Experience rapid transactions on BuildBear, completing in under 3 seconds.
 
 ![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/1171422a-0ce4-4203-bcd4-d2d1941d198b)
 
@@ -37,23 +48,23 @@ cd scaffold-eth-2
 yarn install
 ```
 
-2. Run a local network in the first terminal:
+1. create your private Sandbox:
 
 ```
-yarn chain
+yarn fork-bb
 ```
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
+This command allows you to create a BuildBear SandBox details are stored in `packages/buildbear/sandbox.json`
 
-3. On a second terminal, deploy the test contract:
+1. Deploy the test contract:
 
 ```
 yarn deploy
 ```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+This command deploys a test smart contract to the BuildBear Sandbox. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
 
-4. On a third terminal, start your NextJS app:
+1. On a second terminal, start your NextJS app:
 
 ```
 yarn start
@@ -69,12 +80,10 @@ Run smart contract test with `yarn hardhat:test`
 
 ## Documentation
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+Visit [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+Visit [docs](https://docs.buildbear.io/docs/intro) to learn how to start building with BuildBear.
 
-## Contributing to Scaffold-ETH 2
+# 💬 Support Chat
 
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+Join the telegram [support chat 💬](https://t.me/Web3_dApp_Developers) or buidlguidl [discord](https://discord.gg/pRsr6rwG) to ask questions and find others building with 🏗 scaffold-eth!

@@ -1,10 +1,18 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
+
+import fs from "fs";
+import path from "path";
+
+let bbNode;
+try {
+  bbNode = JSON.parse(fs.readFileSync(path.join(__dirname, "../buildbear/sandbox.json")).toString().trim());
+} catch (e) {
+  console.log("No buildbear node found");
+}
 
 // If not set, it uses ours Alchemy's default API key.
 // You can get your own at https://dashboard.alchemyapi.io
@@ -26,7 +34,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "localhost",
+  defaultNetwork: bbNode ? "buildbear" : "localhost",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -34,6 +42,9 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
+    buildbear: {
+      url: bbNode ? bbNode.rpcUrl : "",
+    },
     // View the networks that are pre-configured.
     // If the network you are looking for is not here you can add new network settings
     hardhat: {
@@ -122,14 +133,22 @@ const config: HardhatUserConfig = {
       url: "https://rpc.scroll.io",
       accounts: [deployerPrivateKey],
     },
-    pgn: {
-      url: "https://rpc.publicgoods.network",
-      accounts: [deployerPrivateKey],
+  },
+
+  etherscan: {
+    apiKey: {
+      buildbear: "verifyContract",
     },
-    pgnTestnet: {
-      url: "https://sepolia.publicgoods.network",
-      accounts: [deployerPrivateKey],
-    },
+    customChains: [
+      {
+        network: "buildbear",
+        chainId: bbNode ? bbNode.chainId : 0,
+        urls: {
+          apiURL: bbNode ? bbNode.verificationUrl : "",
+          browserURL: bbNode ? bbNode.explorerUrl : "",
+        },
+      },
+    ],
   },
   verify: {
     etherscan: {
