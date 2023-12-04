@@ -7,9 +7,9 @@ import "@matterlabs/hardhat-zksync-verify";
 import fs from "fs";
 import path from "path";
 
-let bbNode;
+let sandbox;
 try {
-  bbNode = JSON.parse(fs.readFileSync(path.join(__dirname, "../buildbear/sandbox.json")).toString().trim());
+  sandbox = JSON.parse(fs.readFileSync(path.join(__dirname, "../buildbear/sandbox.json")).toString().trim());
 } catch (e) {
   console.log("No buildbear node found");
 }
@@ -47,7 +47,7 @@ const config: HardhatUserConfig = {
       },
     ]
   },
-  defaultNetwork: bbNode ? "buildbear" : "localhost",
+  defaultNetwork: sandbox ? "buildbear" : "localhost",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -56,7 +56,7 @@ const config: HardhatUserConfig = {
   },
   networks: {
     buildbear: {
-      url: bbNode ? bbNode.rpcUrl : "",
+      url: sandbox ? sandbox.rpcUrl : "",
     },
     // View the networks that are pre-configured.
     // If the network you are looking for is not here you can add new network settings
@@ -155,10 +155,10 @@ const config: HardhatUserConfig = {
     customChains: [
       {
         network: "buildbear",
-        chainId: bbNode ? bbNode.chainId : 0,
+        chainId: sandbox ? sandbox.chainId : 0,
         urls: {
-          apiURL: bbNode ? bbNode.verificationUrl : "",
-          browserURL: bbNode ? bbNode.explorerUrl : "",
+          apiURL: sandbox ? sandbox.verificationUrl : "",
+          browserURL: sandbox ? sandbox.explorerUrl : "",
         },
       },
     ],

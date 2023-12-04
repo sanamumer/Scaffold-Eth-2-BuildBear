@@ -21,7 +21,7 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("Aave", {
+  const aave = await deploy("Aave", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -31,6 +31,10 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     autoMine: true,
   });
 
+  await hre.run("verify:verify", {
+    address: aave.address,
+    constructorArguments: [],
+  });
   // Get the deployed contract
   // const yourContract = await hre.ethers.getContract("YourContract", deployer);
 };

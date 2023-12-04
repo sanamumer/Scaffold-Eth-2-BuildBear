@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   10233: {
     Aave: {
-      address: "0x4cad2A8E4BA09CE1CfCA6F15cE86a6913aBC4d37",
+      address: "0x4160FcFC2404771b00a38222f3C9C98b6fb26B17",
       abi: [
         {
           inputs: [
@@ -72,11 +72,6 @@ const deployedContracts = {
               name: "interestRateMode",
               type: "uint256",
             },
-            {
-              internalType: "address",
-              name: "onBehalfOf",
-              type: "address",
-            },
           ],
           name: "repay",
           outputs: [
@@ -94,11 +89,6 @@ const deployedContracts = {
             {
               internalType: "address",
               name: "token",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "user",
               type: "address",
             },
             {
@@ -145,7 +135,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Swap: {
-      address: "0x2754b66Fb284Ace27fa34d306eBA91c5A920ea3a",
+      address: "0x69BCe9aeDf11df59136Acb66943D062fC6c19496",
       abi: [
         {
           inputs: [
@@ -248,7 +238,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x0667b353d29e4e9a8E7936e78798340f89AD2C0D",
+      address: "0x0C5Af2eFc42D7dfA424B5d07365B7322Ae7e06C6",
       abi: [
         {
           inputs: [
