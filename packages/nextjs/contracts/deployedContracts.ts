@@ -6,8 +6,249 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   10233: {
+    Aave: {
+      address: "0x4cad2A8E4BA09CE1CfCA6F15cE86a6913aBC4d37",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "asset",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "interestRateMode",
+              type: "uint256",
+            },
+            {
+              internalType: "uint16",
+              name: "referralCode",
+              type: "uint16",
+            },
+            {
+              internalType: "address",
+              name: "onBehalfOf",
+              type: "address",
+            },
+          ],
+          name: "borrow",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "pool",
+          outputs: [
+            {
+              internalType: "contract IPool",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "asset",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "interestRateMode",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "onBehalfOf",
+              type: "address",
+            },
+          ],
+          name: "repay",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "token",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "supply",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "asset",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+          ],
+          name: "withdraw",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Swap: {
+      address: "0x2754b66Fb284Ace27fa34d306eBA91c5A920ea3a",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract ISwapRouter",
+              name: "_swapRouter",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "token0",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "token1",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amountIn",
+              type: "uint256",
+            },
+            {
+              internalType: "uint24",
+              name: "poolFee",
+              type: "uint24",
+            },
+          ],
+          name: "swapExactInputSingle",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "amountOut",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "token0",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "token1",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amountOut",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "amountInMaximum",
+              type: "uint256",
+            },
+            {
+              internalType: "uint24",
+              name: "poolFee",
+              type: "uint24",
+            },
+          ],
+          name: "swapExactOutputSingle",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "amountIn",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "swapRouter",
+          outputs: [
+            {
+              internalType: "contract ISwapRouter",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     YourContract: {
-      address: "0x94E15d70440E5aA0A9D010aE522cF469bA217DcC",
+      address: "0x0667b353d29e4e9a8E7936e78798340f89AD2C0D",
       abi: [
         {
           inputs: [
