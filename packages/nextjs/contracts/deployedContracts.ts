@@ -5,9 +5,9 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  10233: {
+  12864: {
     Aave: {
-      address: "0x4160FcFC2404771b00a38222f3C9C98b6fb26B17",
+      address: "0x566552BFce24aB82c1a70Cd4FBd95381db47e6C7",
       abi: [
         {
           inputs: [
@@ -135,7 +135,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Swap: {
-      address: "0x69BCe9aeDf11df59136Acb66943D062fC6c19496",
+      address: "0xAA7783f3656410b3a89370D52b737715eD134687",
       abi: [
         {
           inputs: [
@@ -238,7 +238,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x0C5Af2eFc42D7dfA424B5d07365B7322Ae7e06C6",
+      address: "0x1bcb02712Fdd2895f32e73c14f9F6FF5837253F5",
       abi: [
         {
           inputs: [
