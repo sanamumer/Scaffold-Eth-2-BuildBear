@@ -3,6 +3,7 @@ export * from "./Balance";
 export * from "./BlockieAvatar";
 export * from "./Contract";
 export * from "./Faucet";
+export * from "./FaucetBuildBear";
 export * from "./FaucetButton";
 export * from "./Input";
 export * from "./RainbowKitCustomConnectButton";

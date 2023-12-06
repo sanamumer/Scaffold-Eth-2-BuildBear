@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import buildbearSandbox from "../sandbox.json";
 import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { Faucet } from "~~/components/scaffold-eth";
+import { Faucet, FaucetBuildBear } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useGlobalState } from "~~/services/store/store";
 
@@ -15,6 +16,8 @@ export const Footer = () => {
   const nativeCurrencyPrice = useGlobalState(state => state.nativeCurrencyPrice);
   const { targetNetwork } = useTargetNetwork();
   const isLocalNetwork = targetNetwork.id === hardhat.id;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const isBuildBear = targetNetwork.name! === "BuildBear";
 
   return (
     <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">
@@ -36,6 +39,20 @@ export const Footer = () => {
                   <MagnifyingGlassIcon className="h-4 w-4" />
                   <span>Block Explorer</span>
                 </Link>
+              </>
+            )}
+            {isBuildBear && (
+              <>
+                <FaucetBuildBear />
+                <a
+                  href={buildbearSandbox ? buildbearSandbox.explorerUrl : ""}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary btn-sm font-normal normal-case gap-1"
+                >
+                  <MagnifyingGlassIcon className="h-4 w-4" />
+                  <span>Block Explorer</span>
+                </a>
               </>
             )}
           </div>

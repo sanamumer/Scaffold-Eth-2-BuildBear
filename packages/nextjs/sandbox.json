@@ -1,9 +1,9 @@
 {
-  "sandboxId": "civil-poggle-the-lesser-a930f5b6",
-  "chainId": 12864,
-  "rpcUrl": "https://rpc.buildbear.io/civil-poggle-the-lesser-a930f5b6",
-  "faucetUrl": "https://faucet.buildbear.io/civil-poggle-the-lesser-a930f5b6",
-  "explorerUrl": "https://explorer.buildbear.io/civil-poggle-the-lesser-a930f5b6",
-  "verificationUrl": "https://api.buildbear.io/v1/api/verify/etherscan/civil-poggle-the-lesser-a930f5b6",
+  "sandboxId": "shallow-padme-amidala-af5e2fe1",
+  "chainId": 12872,
+  "rpcUrl": "https://rpc.buildbear.io/shallow-padme-amidala-af5e2fe1",
+  "faucetUrl": "https://faucet.buildbear.io/shallow-padme-amidala-af5e2fe1",
+  "explorerUrl": "https://explorer.buildbear.io/shallow-padme-amidala-af5e2fe1",
+  "verificationUrl": "https://api.buildbear.io/v1/api/verify/etherscan/shallow-padme-amidala-af5e2fe1",
   "forkingChainId": 1
 }

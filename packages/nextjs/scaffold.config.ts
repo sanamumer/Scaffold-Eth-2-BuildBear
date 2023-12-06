@@ -1,15 +1,15 @@
-import * as chains from "viem/chains";
-import { defineChain } from 'viem';
 import node from "./sandbox.json";
+import { defineChain } from "viem";
+import * as chains from "viem/chains";
 
 export const BuildBear = defineChain({
   id: node.chainId,
-  name: 'BuildBear',
-  network: 'BuildBear',
+  name: "BuildBear",
+  network: "BuildBear",
   nativeCurrency: {
     decimals: 18,
-    name: 'Ether',
-    symbol: 'ETH',
+    name: "Ether",
+    symbol: "ETH",
   },
   rpcUrls: {
     default: {
@@ -20,7 +20,7 @@ export const BuildBear = defineChain({
     },
   },
   blockExplorers: {
-    default: { name: 'Explorer', url: node.explorerUrl },
+    default: { name: "Explorer", url: node.explorerUrl },
   },
   contracts: {
     // multicall3: {
@@ -28,7 +28,7 @@ export const BuildBear = defineChain({
     //   blockCreated: 5882,
     // },
   },
-})
+});
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
   pollingInterval: number;
