@@ -62,7 +62,13 @@ This command allows you to create a BuildBear SandBox details are stored in `pac
 yarn deploy
 ```
 
-This command deploys a test smart contract to the BuildBear Sandbox. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+This command deploys smart contracts to your BuildBear Sandbox. You can find the contracts in the packages/hardhat/contracts directory and modify them to fit your needs. The yarn deploy command utilizes the deploy script located in packages/hardhat/deploy to handle the deployment process on the network. This script is also customizable.
+
+Please Note:
+The `Aave` and `Swap` contracts leverage the Mainnet protocols within the sandbox. Currently, they are configured for the `Ethereum Mainnet` contract address. If you're creating your sandbox from a different chain, you'll need to provide the following:
+
+- `pool` address in the `aave contract` for the corresponding chain [Aave contract address](https://docs.aave.com/developers/deployed-contracts/v3-mainnet)
+- `SwapRouter` address in the `swap contract` for the corresponding chain [Uniswap contract address](https://docs.uniswap.org/contracts/v3/reference/deployments)
 
 1. On a second terminal, start your NextJS app:
 
@@ -77,6 +83,8 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
+
+Please note that the `hardhat.config.ts` and `scaffold.config.ts` files are currently configured for BuildBear sandboxes. If you want to use a different network, you can set it as the default in these files. 
 
 ## Documentation
 
