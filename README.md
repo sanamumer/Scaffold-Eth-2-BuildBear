@@ -48,7 +48,7 @@ cd scaffold-eth-2
 yarn install
 ```
 
-1. create your private Sandbox:
+2. create your private Sandbox:
 
 ```
 yarn fork-bb
@@ -56,7 +56,7 @@ yarn fork-bb
 
 This command allows you to create a BuildBear SandBox details are stored in `packages/buildbear/sandbox.json`
 
-1. Deploy the test contract:
+3. Deploy the test contract:
 
 ```
 yarn deploy
@@ -70,7 +70,7 @@ The `Aave` and `Swap` contracts leverage the Mainnet protocols within the sandbo
 - `pool` address in the `aave contract` for the corresponding chain [Aave contract address](https://docs.aave.com/developers/deployed-contracts/v3-mainnet)
 - `SwapRouter` address in the `swap contract` for the corresponding chain [Uniswap contract address](https://docs.uniswap.org/contracts/v3/reference/deployments)
 
-1. On a second terminal, start your NextJS app:
+4. On a second terminal, start your NextJS app:
 
 ```
 yarn start
